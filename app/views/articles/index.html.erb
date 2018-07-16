@@ -1,1 +1,23 @@
 <h1>Articles </h1>
+
+
+<% @articles.each do |x| %>
+
+	<h1> <%= x.title %> </h1>
+
+	<h2> <%= x.subhead %> </h2>
+
+	<p> <%= link_to 'Read more', article_path(x) %> </p>
+
+
+	<% if current_user != nil %>
+
+		<% if x.user_id == current_user.id %>
+
+			<p> <%= link_to 'Edit Article', edit_article_path(x) %> </p>
+
+		<% end %>
+
+	<% end %>
+
+<% end %>

@@ -1,0 +1,29 @@
+
+
+<h1> <%= @user.first_name %> <%= @user.last_name %> </h1>
+
+<p> <%= @user.first_name %> Can be reached at <%= @user.email %> </p>
+
+
+<h3> Articles written by <%= @user.first_name %> </h3>
+
+
+<% @articles.each do |x| %>
+
+	<h3> <%= x.title %> </h3>
+
+	<p> <%= x.subhead %> </p>
+
+	<p> <%= link_to 'Read more', article_path(x) %> </p>
+
+		<% if current_user != nil %>
+
+		<% if x.user_id == current_user.id %>
+
+			<p> <%= link_to 'Edit Article', edit_article_path(x) %> </p>
+
+		<% end %>
+
+	<% end %>
+
+<% end %>

@@ -1,0 +1,22 @@
+$(document).ready(function(){
+<% if current_user.liked? @article %>
+
+	$('.like-btn').addClass('liked');
+
+	<% else %>
+
+	$('.like-btn').removeClass('liked');
+
+
+<% end %>
+
+
+$('.likes-count').html("<%=@article.get_upvotes.size %>");
+
+
+});
+
+
+    $(document).on("ready", function() {
+    console.log("-- Page Load --");
+   });

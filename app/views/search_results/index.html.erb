@@ -1,0 +1,23 @@
+<% if @article_results != [] %>
+
+	<h2>Results in Articles</h2>
+
+	
+	<% @article_results.each do |x| %>
+
+		<a href="/articles/<%=x.searchable_id%>"><%= x.content%></a>
+
+	<% end %>
+<% end %>
+
+
+<% if @user_results != [] %>
+
+
+	<h2>Users</h2>
+	<% @user_results.each do |x| %>
+
+		<a href="/users/<%=x.searchable_id%>"><%= x.content%></a>
+
+	<% end %>
+<% end %>

@@ -1,0 +1,93 @@
+
+
+<h1><%= @article.title %> </h1>
+
+
+<h2><%= @article.subhead %> </h2>
+
+<p>Written by: <a href="/users/<%= @article.user_id %>"> <%= @author.first_name %> </a> </p>
+
+
+<p><%= @article.content %> </p>
+
+
+	<%= link_to like_article_path(@article), :class => 'like-btn', method: :put, remote: :true do %>
+
+		<div>
+
+			<span><p><i>Upvote</i></p></span>
+
+
+		</div>
+
+		<% end %>
+
+		<p class="likes-count"><%= @article.get_upvotes.size %></p>
+
+
+<h3> Post a comment </h3>
+
+<% if current_user != nil %>
+
+
+	<% if @article.user_id == current_user.id %>
+
+		<p> <%= link_to 'Edit Article', edit_article_path(@article) %> </p>
+
+	<% end %>
+
+	
+
+		<%= form_for [@article, @comment] do |f| %>
+
+
+			<%= f.label :type_your_comment_below %>
+			<%= f.text_area :content %>
+
+			<% f.hidden_field :user_id, :value => current_user.id %>
+			<% f.hidden_field :article_id, :value => @article.id %>
+
+			<%= f.submit :'Post your comment' %>
+
+
+		<% end %>
+
+		<% else %>
+
+		<p> You must be <%= link_to 'signed in', new_session_path %> to post a comment </p>
+
+
+<% end %>
+
+	<% @comments.each do |comment|%>
+
+
+		<a href="/users/<%= comment.user_id %>"><%= comment.user.first_name %> </a>
+
+		<p><strong><%= time_ago_in_words(comment.created_at) %> ago</strong></p> 
+
+
+		<p><%= comment.content %></p>
+
+		
+		<%= form_for comment, url: comments_upvote_path, method: :post, remote: true do |x| %>
+
+			<input type="hidden", value="<%=comment.id%>", name="comment_id">
+	  		
+			<%= x.submit :'Upvote' %>
+
+			<p><%= comment.upvotes %> upvotes</p>
+	  		
+			
+		<% end %>
+
+	<% end %>
+
+
+
+
+
+
+
+
+
