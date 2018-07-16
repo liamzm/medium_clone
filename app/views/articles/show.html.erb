@@ -11,16 +11,25 @@
 <p><%= @article.content %> </p>
 
 
-	<%= link_to like_article_path(@article), :class => 'like-btn', method: :put, remote: :true do %>
-
-		<div>
-
-			<span><p><i>Upvote</i></p></span>
+	<% if current_user != nil %>
 
 
-		</div>
+		<%= link_to like_article_path(@article), :class => 'like-btn', method: :put, remote: :true do %>
+
+			<div>
+
+				<span><p><i>Upvote</i></p></span>
+
+
+			</div>
 
 		<% end %>
+
+	<% else %>
+
+		<%= link_to 'Upvote', new_session_path %>
+
+	<% end %>
 
 		<p class="likes-count"><%= @article.get_upvotes.size %></p>
 
