@@ -19,7 +19,8 @@
     <%= link_to "Post a new article", new_article_path %>
 
     <% if current_user %>
-      <p> Logged in as <%= current_user.email %>
+      <p> Logged in as <a href="/users/<%= current_user.id %>/edit"><%= current_user.email %></a></p>
+      <%= image_tag(current_user.avatar_url(:thumb).to_s) %>
       <%= link_to "Log Out", session_path("logout"), method: "delete" %>
 
       <% else %>
