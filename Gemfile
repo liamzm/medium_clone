@@ -38,6 +38,12 @@ gem 'responders'
 
 gem 'pg_search'
 
+gem 'geocoder'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

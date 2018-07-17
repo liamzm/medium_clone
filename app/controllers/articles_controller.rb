@@ -8,6 +8,8 @@ class ArticlesController < ApplicationController
 
 
 
+
+
 	def index
 
 		@articles = Article.order(created_at: :desc)
@@ -93,7 +95,7 @@ end
 	private
 	
 	def article_params
-		params.require(:article).permit(:title, :subhead, :content, :user_id)
+		params.require(:article).permit(:title, :subhead, :address, :longitude, :latitude, :image, :content, :user_id)
 	end
 
 	def set_article

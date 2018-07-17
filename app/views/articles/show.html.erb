@@ -1,5 +1,8 @@
 
 
+
+<%= image_tag(@article.image_url.to_s) %>
+
 <h1><%= @article.title %> </h1>
 
 
@@ -7,8 +10,11 @@
 
 <p>Written by: <a href="/users/<%= @article.user_id %>"> <%= @author.first_name %> </a> </p>
 
+<p><%= @article.address %> </p>
 
-<p><%= @article.content %> </p>
+<div id="map"></div>
+
+<p><%= simple_format(@article.content) %> </p>
 
 
 	<% if current_user != nil %>
@@ -18,7 +24,7 @@
 
 			<div>
 
-				<span><p><i>Upvote</i></p></span>
+				<span><p><i>Like this article</i></p></span>
 
 
 			</div>
@@ -79,24 +85,32 @@
 		<p><%= comment.content %></p>
 
 		
-		<%= form_for comment, url: comments_upvote_path, method: :post, remote: true do |x| %>
 
-			<input type="hidden", value="<%=comment.id%>", name="comment_id">
-	  		
-			<%= x.submit :'Upvote' %>
-
-			<p><%= comment.upvotes %> upvotes</p>
-	  		
-			
-		<% end %>
 
 	<% end %>
 
 
 
 
+<script>
+      function initMap() {
+        var myLatLng = {lat: <%=@article.latitude %>, lng: <%=@article.longitude %>};
 
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 6,
+          center: myLatLng
+        });
 
-
-
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Tasty food map'
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKHH_JtyjdFmkCMfEsacPf5WnxSxNbEf0&callback=initMap">
+    </script>
+  </body>
+</html>
 
