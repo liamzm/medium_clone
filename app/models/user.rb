@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
 
 	acts_as_voter
 
+	mount_uploader :avatar, AvatarUploader
+
+	enum user_type: [:user, :admin]
+
 	# attr_accessible :email, :password, :first_name, :last_name
 
 	validates_uniqueness_of :email
