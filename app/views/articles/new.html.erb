@@ -18,12 +18,36 @@
 
 </div>
 
+<div class="form-field">
+	<%= f.label :city %>
+	(e.g. Jakarta) </p>
+	<%= f.text_field :address %>
+
+</div>
+
+<div class="hidden">
+	<%= f.label :longitude %>
+	<%= f.hidden_field :longitude %>
+
+</div>
+
+<div class="hidden">
+	<%= f.label :latitude %>
+	<%= f.hidden_field :latitude %>
+
+</div>
+
 
 <div class="form-field">
 	<%= f.label :content %>
 	<%= f.text_area :content %>
 
 </div>
+
+  <div class="form-field">
+    <p>Upload an image</p>
+    <%= f.file_field :image %>
+  </div>
 
 
 <div class="button">

@@ -5,7 +5,7 @@
 	
 	<% @article_results.each do |x| %>
 
-		<a href="/articles/<%=x.searchable_id%>"><%= x.content%></a>
+		<a href="/articles/<%=x.searchable_id%>"><%= x.content.first(100)%>...</a>
 
 	<% end %>
 <% end %>
