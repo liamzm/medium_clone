@@ -4,10 +4,21 @@
 
 <%= image_tag(@user.avatar_url(:thumb).to_s) %>
 
-<p> <%= @user.first_name %> Can be reached at <%= @user.email %> </p>
+<p> <%= @user.first_name %> can be reached at <%= @user.email %> </p>
 
 
 <h3> Articles written by <%= @user.first_name %> </h3>
+
+
+<% if current_user != nil %>
+
+	<% if current_user.id == @user.id || current_user.user_type == "admin" %>
+	
+		<p> <%= link_to 'Edit Profile', edit_user_path(@user), class: 'quick-link' %> </p>
+
+	<% end %>
+
+<% end %>
 
 
 <% @articles.each do |x| %>

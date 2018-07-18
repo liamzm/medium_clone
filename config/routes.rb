@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
 
 
-post "comments/upvote"
+# post "comments/upvote"
 
 
 root "articles#index"

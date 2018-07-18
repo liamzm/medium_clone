@@ -2,6 +2,14 @@
 
 <h1>Sign up</h1>
 
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |message| %>
+      <p class="error"><%= message %></p>
+    
+    <% end %>
+
+  <% end %>
+
 <%= form_for @user do |f| %>
 
 <div class="form-field">
@@ -11,6 +19,7 @@
 </div>
 
 <div class="form-field">
+	<p>Minimum eight characters, at least one letter and one number</p>
 	<%= f.label :password %>
 	<%= f.password_field :password %>
 

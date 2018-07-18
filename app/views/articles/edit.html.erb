@@ -1,6 +1,6 @@
 
 
-<% if current_user.id == @article.user_id %>
+<% if current_user.id == @article.user_id || current_user.user_type == 'admin' %>
 
 <h1>Edit this article</h1>
 
