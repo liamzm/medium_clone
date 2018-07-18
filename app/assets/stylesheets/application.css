@@ -21,15 +21,78 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 25%;
+        height: 150px;
+        width: 100%;
+        z-index: 1;
       }
       /* Optional: Makes the sample page fill the window. */
-      html, body {
+      html {
         height: 100%;
-        margin: 0;
         padding: 0;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      body {
+        width: 100%;
+        margin: 0;
+      }
+
+      .filler {
+        width: 100%;
+        height: 90px;
       }
 
       .hidden {
       	display: none;
       }
+
+
+      .headline {
+        color: black;
+        text-decoration: none;
+        font-size: 30px;
+        font-weight: 700;
+     /*   border: 1px dotted gray;*/
+      }
+
+      .headline:hover {
+        color: gray;
+      }
+
+      .quick-link {
+        color: gray;
+        font-size: 11px;
+        text-decoration: none;
+/*        border: 1px dotted gray;*/
+
+      }
+
+      .quick-link a {
+        margin-top: 0px;
+        margin-bottom: 0px;
+
+      }
+
+      .quick-link:hover {
+        color: red;
+      }
+
+    /*  Horizontal-divider*/
+
+      .divider-horizontal {
+        width: 1000px;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px dotted #009447;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin: auto;
+      }
+
+      .error {
+        color: red;
+      }
+
+
+

@@ -14,6 +14,14 @@ class User < ActiveRecord::Base
 
 	validates_uniqueness_of :email
 
+	validate :password_complexity
+
+	def password_complexity
+    return if password.blank? || password =~ /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+
+    errors.add :password, 'Complexity requirement not met. Minimum eight characters, at least one letter and one number'
+  end
+
 	include PgSearch
   	multisearchable :against => [:first_name, :last_name]
 

@@ -12,7 +12,15 @@ class ArticlesController < ApplicationController
 
 	def index
 
-		@articles = Article.order(created_at: :desc)
+		# @articles = Article.all
+
+		# @article = Article.find(params[:id])
+
+				# @author = User.find(@article.user_id)
+
+
+		# @author = User.find(article.user_id).first_name 
+
 
 	end
 
