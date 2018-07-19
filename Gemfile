@@ -56,6 +56,10 @@ gem 'poltergeist'
 
 gem 'database_cleaner'
 
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
