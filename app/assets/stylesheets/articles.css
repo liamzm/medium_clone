@@ -40,7 +40,7 @@
 
 
 .article-submitter-container {
-	border: 1px dotted gray;
+/*	border: 1px dotted gray;*/
 	display: flex;
 	padding: none;
 	margin-bottom: 5px;
@@ -130,7 +130,7 @@
 	font-family: 'Merriweather', serif;
 	font-size: 17px;
 	line-height: 2;
-	border: 1px dotted gray;
+/*	border: 1px dotted gray;*/
 	margin-top: 20px;
 
 }
