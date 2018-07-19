@@ -2,7 +2,7 @@
 
 
 
-<% Article.order(:cached_votes_down).each do |x| %>
+<% @articles.order(:cached_votes_total => :desc).each do |x| %>
 
 
 <div class="article-container">
@@ -28,6 +28,9 @@
 		<!-- Box for information about who submitted and when -->
 
 		<div class="article-submitter-container">
+
+
+			<%= image_tag x.user.avatar_url(:thumb).to_s, :class => 'avatar', :id => 'byline-avatar' %>
 
 	    	<a class="submission-info" href="/users/<%=x.user_id%>"> By<strong> <%= User.find(x.user_id).first_name %></strong> </a>
 

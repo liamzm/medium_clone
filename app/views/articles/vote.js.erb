@@ -2,10 +2,14 @@ $(document).ready(function(){
 <% if current_user.liked? @article %>
 
 	$('.like-btn').addClass('liked');
+	$('.upvote-button').css('upvote-button-liked');
+
+
 
 	<% else %>
 
 	$('.like-btn').removeClass('liked');
+	$('.upvote-button').removeClass('upvote-button-liked');
 
 
 <% end %>

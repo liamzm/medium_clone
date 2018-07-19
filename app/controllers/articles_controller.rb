@@ -12,7 +12,11 @@ class ArticlesController < ApplicationController
 
 	def index
 
-		# @articles = Article.all
+		
+
+		@articles = Article.all
+
+		# @articles.order(:cached_votes_total => :desc)
 
 		# @article = Article.find(params[:id])
 

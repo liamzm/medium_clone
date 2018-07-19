@@ -18,7 +18,7 @@
 
 <div class="form-field">
 	<%= f.label :city %>
-	(e.g. Jakarta) </p>
+	<p>(e.g. Jakarta) </p>
 	<%= f.text_field :address %>
 
 </div>
@@ -57,7 +57,7 @@
 
 <% else %>
 
-<p> You must be <%= link_to sign_in_path, "signed in" %> to post a new article </p>
+<p> You must be <%= link_to "logged in", new_session_path %> to post a new article </p>
 
 
 
