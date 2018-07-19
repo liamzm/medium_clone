@@ -1,45 +1,117 @@
 
+<div class="article-show-container">
+
+<%= image_tag (@article.image_url(:dom).to_s), :class => 'article-dom-img' %>
+
+	<div class="headline-show-container">
+
+		<div class="city-tag"> 
+
+			<p><%= @article.address %></p>
+
+		</div>
+
+<!-- 		<div class="divider-black"></div> -->
+
+		<h1><%= @article.title %> </h1>
+
+		<div class="divider-black"></div>
+
+		<h2><%= @article.subhead %> </h2>
+
+<!-- 		<div class="divider-black"></div> -->
+
+	</div>
 
 
-<%= image_tag(@article.image_url(:dom).to_s) %>
+</div>
 
-<h1><%= @article.title %> </h1>
-
-
-<h2><%= @article.subhead %> </h2>
-
-<p>Written by: <a href="/users/<%= @article.user_id %>"> <%= @author.first_name %> </a> </p>
-
-<p><%= @article.address %> </p>
 
 <div id="map"></div>
 
+<!-- body text starts here -->
+
+<div class="article-body-text">
 
 
-<p><%= simple_format(@article.content) %> </p>
+	<!-- Box for liking article -->
 
 
-	<% if current_user != nil %>
+		<% if current_user != nil %>
 
 
 		<%= link_to like_article_path(@article), :class => 'like-btn', method: :put, remote: :true do %>
 
-			<div>
+			<div class="like-box">
 
-				<span>Like this article</span>
-
-
-			</div>
+				<img src='/upvote_button.png' class="upvote-button"></img>
 
 		<% end %>
 
-	<% else %>
+			<p class="likes-count"><%= @article.get_upvotes.size %></p>
 
-		<%= link_to 'Upvote', new_session_path %>
+			<p>likes</p>
 
-	<% end %>
+			</div>
 
-		<p class="likes-count"><%= @article.get_upvotes.size %></p>
+		<% else %>
+
+		<%= link_to new_session_path, :class => 'like-btn' do %>
+
+			<div class="like-box">
+
+				<img src='/upvote_button.png' class="upvote-button"></img>
+
+
+				<% end %>
+
+				<p class="likes-count"><%= @article.get_upvotes.size %></p>
+
+				<p>likes</p>
+
+			</div>
+
+
+		<% end %>
+
+
+<!-- 
+		</div> -->
+
+		
+
+
+
+
+<!-- 	</div> -->
+
+
+
+	<div class="article-submitter-container" id="article-show-submitter-container">
+
+		<div class="container-default">
+
+		<%= image_tag @author.avatar_url(:thumb).to_s, :class => 'avatar', :id => 'byline-avatar' %>
+
+		<p class="submission-info" id="article-show-submitter">By <a href="/users/<%= @article.user_id %>" > <%= @author.first_name %> </a> in <%= @article.address %> </p>
+
+		</div>
+
+		<p class="submission-info" id="article-show-submitter">Posted <strong><%= time_ago_in_words(@article.created_at) %> ago</strong> </p>
+
+
+	</div>
+
+	
+
+
+
+	<p><%= simple_format(@article.content) %> </p>
+
+
+</div>
+
+
 
 
 <h3> Post a comment </h3>
