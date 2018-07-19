@@ -1,6 +1,44 @@
 
 
 
+<div class="bannerimg-container">
+
+	<div class="welcome-to-box">
+
+		<h1 class="welcome-to">Welcome to</h1>
+
+		<h1 class="welcome-to large">Eatium</h1>
+
+		<p class="app-desc">A platform for travelers to share their <strong>food stories</strong> </p>
+
+		<p class="app-desc small">How to use Eatium </p>
+
+		<div class="list-box">
+
+		<ul>
+			<li>Read <strong>articles</strong> from other foodies</li>
+			<li>Post your own <strong>food adventure</strong> story</li>
+			<li>Upvote the best <strong>food stories</strong></li>
+
+		</ul>
+
+		</div>
+
+	</div>
+
+	<img class="banner-img" src='bannerimg.png' />
+
+
+
+
+</div>
+
+
+
+
+
+
+
 
 <% @articles.order(:cached_votes_total => :desc).each do |x| %>
 
